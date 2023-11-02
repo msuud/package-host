@@ -2,123 +2,30 @@
 <html>
   <head>
     <title>Resort Recommendation</title>
-    <style>
-      :root {
-        --PrimaryColor: hsl(26, 93%, 50%);
-        --HoverColor: hsl(26, 90%, 42%);
-        --whiteColor: hsl(0, 0%, 100%);
-        --blackColor: hsl(0, 0%, 18%);
-        --textColor: hsl(240, 1%, 48%);
-        --greyBg: hsl(0, 0%, 96%);
-        --greyText: rgb(190, 190, 190);
-        --inputColor: hsl(330, 12%, 97%);
-      }
-
-      .pack {
-        height: 80vh;
-        background: linear-gradient(
-            rgba(33, 33, 33, 0.522),
-            rgba(33, 33, 33, 0.522)
-          ),
-          url("../../sgp/client/src/Assets/Resort/Night.jpg");
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: auto;
-        position: relative;
-      }
-      .home .secContainer .packText {
-        text-align: center;
-      }
-      .pack .secContainer .packText .title {
-        color: var(--whiteColor);
-        font-size: 2rem;
-        font-weight: 700;
-        line-height: 2.5rem;
-      }
-
-      .pack .secContainer .packText .btn {
-        padding: 0.6rem 1.5rem;
-      }
-      .pack .secContainer .packCard {
-        width: 80%;
-        border-radius: 1rem;
-        padding: 2rem;
-        background: var(--whiteColor);
-        position: absolute;
-        gap: 1rem;
-        justify-content: center;
-        bottom: -35%;
-        transform: translate(-50%);
-        left: 50%;
-        box-shadow: 0 2px 8px 4px rgba(178, 178, 178, 0.45);
-      }
-      .pack .secContainer .packCard .form {
-        width: 100%;
-      }
-      .pack .secContainer .packCard .form label {
-        display: block;
-        color: var(--textColor);
-        font-weight: 500;
-        padding-bottom: 0.4rem;
-        font-size: 13px;
-      }
-      .pack .secContainer .packCard .form input {
-        width: 100%;
-        background: var(--inputColor);
-        border-radius: 10px;
-        border: none;
-        padding: 10px;
-        font-size: 13px;
-        font-weight: 500;
-      }
-      .pack .secContainer .packCard .form input::-moz-placeholder {
-        font-size: 13px;
-        opacity: 0.5;
-        font-weight: 400;
-      }
-      .pack .secContainer .packCard .form input::placeholder {
-        font-size: 13px;
-        opacity: 0.5;
-        font-weight: 400;
-      }
-      .pack .secContainer .packCard .form input:focus {
-        outline: none;
-      }
-      .pack .secContainer .packCard .btn {
-        width: 100%;
-        padding: 0.6rem 1.5rem;
-        color: var(--whiteColor);
-        font-weight: 600;
-      }
-
-      .pack .secContainer .packCard .result {
-        color: var(--blackColor);
-      }
-    </style>
+    <link rel="stylesheet" type="text/css" href="./pack.css" />
   </head>
   <body>
-    <section className="pack">
-      <div className="secContainer container">
-        <div className="packText">
-          <h1 className="title" style="color: aquamarine">
-            Resort Recommendation
-          </h1>
+    <section class="pack">
+      <div class="secContainer container">
+        <div class="packText">
+          <h1 class="title">Resort Recommendation</h1>
         </div>
 
-        <div className="packCard grid">
-          <div className="form">
-            <label htmlFor="checkin">Enter your budget (In Rs.) : </label>
-            <input type="number" placeholder="Enter your budget" />
+        <div class="packCard grid">
+          <div class="form">
+            <p id="budget-text">Enter your budget (In Rs.):</p>
+            <input
+              type="number"
+              id="budget-input"
+              placeholder="Enter your budget"
+            />
           </div>
 
-          <button className="btn">Recommend</button>
+          <button id="recommend-button" class="btn">Recommend</button>
+          <div class="rec"><h2>Your Recommended Package :</h2></div>
 
-          <div className="result">
-            <h2>Your recommended Package :</h2>
+          <div class="result">
+            <p id="recommendation"></p>
           </div>
         </div>
       </div>
@@ -128,6 +35,7 @@
       const budgetInput = document.getElementById("budget-input");
       const recommendButton = document.getElementById("recommend-button");
       const recommendationText = document.getElementById("recommendation");
+      recommendationText.classList.add("recommended-package");
 
       recommendButton.addEventListener("click", () => {
         const budget = parseFloat(budgetInput.value);
@@ -137,16 +45,16 @@
         if (isNaN(budget)) {
           recommendationText.textContent = "Please enter a valid budget.";
         } else if (budget < 3000) {
-          amenities = "Amenities: Dine-In Services";
+          amenities = "Amenities : Dine-In Services";
         } else if (budget >= 3000 && budget <= 6000) {
           amenities =
-            "Amenities: Dine-In Services, Gym Access, Pool Access, Fishing (Half-Day), Bird Watching, Beach Bonfire, Stargazing";
+            "Amenities : Dine-In Services, Gym Access, Pool Access, Fishing (Half-Day), Bird Watching, Beach Bonfire, Stargazing";
         } else {
           amenities =
-            "Amenities: Spa and Massages, Exclusive Dining Experience, Outdoor Movie Night, Stargazing, Tennis";
+            "Amenities : Spa and Massages, Exclusive Dining Experience, Outdoor Movie Night, Stargazing, Tennis";
         }
 
-        recommendationText.textContent = `Your recommended Package: ${amenities}`;
+        recommendationText.textContent = `${amenities}`;
       });
     </script>
   </body>

@@ -12,7 +12,7 @@
 .pack {
   height: 80vh;
   background: linear-gradient(rgba(33, 33, 33, 0.522), rgba(33, 33, 33, 0.522)),
-    url("../../sgp/client/src/Assets/Resort/Night.jpg");
+    url("../../sgp/client/src/Assets/Banquet.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -22,13 +22,13 @@
   margin: auto;
   position: relative;
 }
-.home .secContainer .packText {
+.home .secContainer .packText .title {
   text-align: center;
 }
 .pack .secContainer .packText .title {
   color: var(--whiteColor);
-  font-size: 2rem;
-  font-weight: 700;
+  font-size: 3rem;
+  font-weight: 900;
   line-height: 2.5rem;
 }
 
@@ -51,26 +51,27 @@
 .pack .secContainer .packCard .form {
   width: 100%;
 }
-.pack .secContainer .packCard .form label {
+.pack .secContainer .packCard .form p {
   display: block;
   color: var(--textColor);
-  font-weight: 500;
+  font-weight: 700;
   padding-bottom: 0.4rem;
-  font-size: 13px;
+  font-size: 20px;
 }
 .pack .secContainer .packCard .form input {
   width: 100%;
   background: var(--inputColor);
   border-radius: 10px;
   border: none;
-  padding: 10px;
-  font-size: 13px;
-  font-weight: 500;
+  padding: 15px;
+  margin-bottom: 1.5%;
+  font-size: 16px;
+  font-weight: 400;
 }
 .pack .secContainer .packCard .form input::-moz-placeholder {
-  font-size: 13px;
+  font-size: 18px;
   opacity: 0.5;
-  font-weight: 400;
+  font-weight: 200;
 }
 .pack .secContainer .packCard .form input::placeholder {
   font-size: 13px;
@@ -83,10 +84,24 @@
 .pack .secContainer .packCard .btn {
   width: 100%;
   padding: 0.6rem 1.5rem;
-  color: var(--whiteColor);
-  font-weight: 600;
+  color: var(--PrimaryColor);
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 5px;
+  top: 50%;
+  left: 50%;
+  font-size: 15px;
+  font-weight: 700;
 }
 
 .pack .secContainer .packCard .result {
   color: var(--blackColor);
+  font-size: 19px;
+  font-weight: bold;
+}
+
+.pack .secContainer .packCard .rec {
+  color: var(--blackColor);
+  font-size: 16px;
+  font-weight: bold;
 }
