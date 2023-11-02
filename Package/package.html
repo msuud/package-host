@@ -5,13 +5,26 @@
     <link rel="stylesheet" type="text/css" href="pack.css" />
   </head>
   <body>
-    <h1>Resort Recommendation</h1>
-    <div id="output">
-      <p id="budget-text">Enter your budget (In Rs.):</p>
-      <input type="number" id="budget-input" placeholder="Enter your budget" />
-      <button id="recommend-button">Recommend</button>
-      <p id="recommendation">Your recommended Package:</p>
-    </div>
+    <section className="pack">
+      <div className="secContainer container">
+        <div className="packText">
+          <h1 className="title">Resort Recommendation</h1>
+        </div>
+
+        <div className="packCard grid">
+          <div className="form">
+            <label htmlFor="checkin">Enter your budget (In Rs.) : </label>
+            <input type="number" placeholder="Enter your budget" />
+          </div>
+
+          <button className="btn">Recommend</button>
+
+          <div className="result">
+            <h2>Your recommended Package :</h2>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <script>
       const budgetInput = document.getElementById("budget-input");
